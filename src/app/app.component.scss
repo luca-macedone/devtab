@@ -1,0 +1,13 @@
+// .DEBUG div {
+//     border: 1px solid palegreen;
+// }
+
+.mask {
+    position: sticky;
+    bottom: -1rem;
+    left: -1rem;
+    background: linear-gradient(to top, theme("colors.black"), theme("colors.transparent"));
+    z-index: 10;
+    height: 150px;
+    width: 110%;
+}
