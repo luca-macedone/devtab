@@ -1,0 +1,6 @@
+<form (ngSubmit)="submitForm()" class="w-full">
+    <input type="search"
+        class="text-green-500 placeholder:text-green-800 bg-black ring-0 focus:drop-shadow-none focus:ring-0 focus:border-0 focus:border-b-2 focus:border-green-500 border-0 border-b-2 border-green-500 w-full"
+        [(ngModel)]="searchInput" placeholder="Cerca.." name="searchInput" autofocus />
+    <button type="submit">Cerca</button>
+</form>

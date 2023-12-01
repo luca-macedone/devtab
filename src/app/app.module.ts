@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,8 @@ import { PromptSectionComponent } from './prompt-section/prompt-section.componen
 import { TasksSectionComponent } from './tasks-section/tasks-section.component';
 import { FooterSectionComponent } from './footer-section/footer-section.component';
 import axios from 'axios';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { ClockItemComponent } from './clock-item/clock-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +19,14 @@ import axios from 'axios';
     SearchSectionComponent,
     PromptSectionComponent,
     TasksSectionComponent,
-    FooterSectionComponent
+    FooterSectionComponent,
+    SearchBarComponent,
+    ClockItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -35,7 +35,7 @@ export class NewsSectionComponent implements OnInit {
       .then(response => {
         if (response.data.status == 'ok') {
           this.news = response.data.articles
-          console.log(this.news)
+          // console.log(this.news)
         }
       })
       .catch(error => {
