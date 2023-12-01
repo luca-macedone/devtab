@@ -6,22 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewsSectionComponent } from './news-section/news-section.component';
 import { SearchSectionComponent } from './search-section/search-section.component';
-import { PromptSectionComponent } from './prompt-section/prompt-section.component';
 import { TasksSectionComponent } from './tasks-section/tasks-section.component';
 import { FooterSectionComponent } from './footer-section/footer-section.component';
-import axios from 'axios';
+
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ClockItemComponent } from './clock-item/clock-item.component';
+import { QuizSectionComponent } from './quiz-section/quiz-section.component';
 @NgModule({
   declarations: [
     AppComponent,
     NewsSectionComponent,
     SearchSectionComponent,
-    PromptSectionComponent,
     TasksSectionComponent,
     FooterSectionComponent,
     SearchBarComponent,
-    ClockItemComponent
+    ClockItemComponent,
+    QuizSectionComponent
   ],
   imports: [
     BrowserModule,

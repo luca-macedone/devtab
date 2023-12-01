@@ -1,20 +1,21 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.scss'
 })
-export class SearchBarComponent {
+export class SearchBarComponent implements OnInit {
   searchInput: string = '';
-
-  constructor(private router: Router) { }
 
   submitForm() {
     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(this.searchInput)}`;
 
     window.location.href = searchUrl;
+  }
+
+  ngOnInit(): void {
+    this.searchInput = ''
   }
 }
 
