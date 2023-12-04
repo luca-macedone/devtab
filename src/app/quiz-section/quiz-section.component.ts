@@ -16,12 +16,12 @@ interface QuizQuestion {
   },
   multiple_correct_answers: boolean,
   correct_answers: {
-    answer_a_correct: boolean,
-    answer_b_correct: boolean,
-    answer_c_correct: boolean,
-    answer_d_correct: boolean,
-    answer_e_correct: boolean,
-    answer_f_correct: boolean
+    answer_a_correct: string,
+    answer_b_correct: string,
+    answer_c_correct: string,
+    answer_d_correct: string,
+    answer_e_correct: string,
+    answer_f_correct: string
   },
   explanation: string,
   tip: string | null,
@@ -39,8 +39,22 @@ export class QuizSectionComponent implements OnInit {
   quizList: Array<QuizQuestion> = []
   api_base_url: string = 'https://quizapi.io/api/v1'
   questions: string = '/questions'
+  quizStarted: boolean = false
+  lastQuestionIndex: number = 0
+  score: number = 0
+  loading: boolean = false
+  endgame: boolean = false
   // quiz: '/quiz'
   ngOnInit(): void {
+    this.quizStarted = false
+    this.lastQuestionIndex = 0
+    this.score = 0
+    this.loading = false
+    this.endgame = false
+  }
+
+  fetchQuizQuestions() {
+    this.loading = true
     axios({
       method: 'get',
       url: `${this.api_base_url + this.questions}`,
@@ -49,11 +63,86 @@ export class QuizSectionComponent implements OnInit {
       .then(response => {
         if (response.status == 200) {
           // console.log(response.data)
+          this.loading = false
           this.quizList = response.data
         }
       })
       .catch(error => {
         console.error(error.getMessage())
       })
+  }
+
+  startGame() {
+    this.fetchQuizQuestions()
+    this.endgame = false
+    this.lastQuestionIndex = 0
+    this.score = 0
+
+    // if (!this.loading) {
+    //   this.quizStarted = true
+    // }
+    setTimeout(() => {
+      if (!this.loading) {
+        this.quizStarted = true
+      }
+    }, 1000)
+  }
+
+  endGame() {
+    this.endgame = true
+    this.quizStarted = false
+  }
+
+  checkAnswer(answer: string) {
+    switch (answer) {
+      case 'a':
+        if (this.quizList[this.lastQuestionIndex].correct_answers.answer_a_correct == 'true') {
+          this.score++
+          this.quizList.length > this.lastQuestionIndex + 1 ? this.lastQuestionIndex++ : this.endGame()
+        } else {
+          this.endGame()
+        }
+        break;
+      case 'b':
+        if (this.quizList[this.lastQuestionIndex].correct_answers.answer_b_correct == 'true') {
+          this.score++
+          this.quizList.length > this.lastQuestionIndex + 1 ? this.lastQuestionIndex++ : this.endGame()
+        } else {
+          this.endGame()
+        }
+        break;
+      case 'c':
+        if (this.quizList[this.lastQuestionIndex].correct_answers.answer_c_correct == 'true') {
+          this.score++
+          this.quizList.length > this.lastQuestionIndex + 1 ? this.lastQuestionIndex++ : this.endGame()
+        } else {
+          this.endGame()
+        }
+        break;
+      case 'd':
+        if (this.quizList[this.lastQuestionIndex].correct_answers.answer_d_correct == 'true') {
+          this.score++
+          this.quizList.length > this.lastQuestionIndex + 1 ? this.lastQuestionIndex++ : this.endGame()
+        } else {
+          this.endGame()
+        }
+        break;
+      case 'e':
+        if (this.quizList[this.lastQuestionIndex].correct_answers.answer_e_correct == 'true') {
+          this.score++
+          this.quizList.length > this.lastQuestionIndex + 1 ? this.lastQuestionIndex++ : this.endGame()
+        } else {
+          this.endGame()
+        }
+        break;
+      case 'f':
+        if (this.quizList[this.lastQuestionIndex].correct_answers.answer_f_correct == 'true') {
+          this.score++
+          this.quizList.length > this.lastQuestionIndex + 1 ? this.lastQuestionIndex++ : this.endGame()
+        } else {
+          this.endGame()
+        }
+        break;
+    }
   }
 }
