@@ -1,8 +1,85 @@
-<section class="border border-green-500 p-5 shadow-xl shadow-transparent hover:shadow-green-900 rounded-xl">
+<section class="border border-green-500 p-5 rounded-xl  overflow-y-scroll" [class]="quizStarted ? 'h-full':'h-max'">
     <div class="flex items-center justify-between">
-        <h1 class="text-green-500 font-mono">Dev Quiz</h1>
+        <h1 class="text-green-500 font-mono">Dev Quiz
+            <span class="text-white" *ngIf="quizStarted">
+                [{{quizList[lastQuestionIndex].difficulty}}]
+            </span>
+        </h1>
 
-        <button
-            class="text-green-500 hover:underline hover:underline-offset-2 hover:decoration-green-500 font-mono">Play</button>
+        <button class="text-green-500 hover:underline hover:underline-offset-2 hover:decoration-green-500 font-mono"
+            (click)="startGame()" *ngIf="!quizStarted">
+            <span *ngIf="!loading">Play</span>
+            <span class="text-green-500" *ngIf="loading">
+                <svg class="w-6 h-6 animate-spin" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 18 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 1v5h-5M2 19v-5h5m10-4a8 8 0 0 1-14.947 3.97M1 10a8 8 0 0 1 14.947-3.97" />
+                </svg>
+            </span>
+        </button>
+        <button class="text-green-500 hover:underline hover:underline-offset-2 hover:decoration-green-500 font-mono"
+            (click)="endGame()" *ngIf="quizStarted">Exit</button>
+    </div>
+    <div id="game-board" class="pt-2" *ngIf="quizStarted">
+        <div class="text-white font-mono my-2" id="question">{{quizList[lastQuestionIndex].question}}</div>
+        <div class="flex flex-col items-start justify-start gap-3 h-full w-full">
+            <div class="w-full" *ngIf="quizList[lastQuestionIndex].answers.answer_a">
+                <button type="button" (click)="checkAnswer('a')"
+                    class="border border-transparent p-2 rounded-lg text-slate-500 w-full hover:text-white hover:border-green-500"
+                    id="answer-a">
+                    <div class="font-mono text-left w-full">
+                        a) {{quizList[lastQuestionIndex].answers.answer_a}}
+                    </div>
+                </button>
+            </div>
+            <div class="w-full" *ngIf="quizList[lastQuestionIndex].answers.answer_b">
+                <button type="button" (click)="checkAnswer('b')"
+                    class="border border-transparent p-2 rounded-lg text-slate-500 w-full hover:text-white hover:border-green-500"
+                    id="answer-b">
+                    <div class="font-mono text-left w-full">
+                        b) {{quizList[lastQuestionIndex].answers.answer_b}}
+                    </div>
+                </button>
+            </div>
+            <div class="w-full" *ngIf="quizList[lastQuestionIndex].answers.answer_c">
+                <button type="button" (click)="checkAnswer('c')"
+                    class="border border-transparent p-2 rounded-lg text-slate-500 w-full hover:text-white hover:border-green-500"
+                    id="answer-c">
+                    <div class="font-mono text-left w-full">
+                        c) {{quizList[lastQuestionIndex].answers.answer_c}}
+                    </div>
+                </button>
+            </div>
+            <div class="w-full" *ngIf="quizList[lastQuestionIndex].answers.answer_d">
+                <button type="button" (click)="checkAnswer('d')"
+                    class="border border-transparent p-2 rounded-lg text-slate-500 w-full hover:text-white hover:border-green-500"
+                    id="answer-d">
+                    <div class="font-mono text-left w-full">
+                        d) {{quizList[lastQuestionIndex].answers.answer_d}}
+                    </div>
+                </button>
+            </div>
+            <div class="w-full" *ngIf="quizList[lastQuestionIndex].answers.answer_e">
+                <button type="button" (click)="checkAnswer('e')"
+                    class="border border-transparent p-2 rounded-lg text-slate-500 w-full hover:text-white hover:border-green-500"
+                    id="answer-e">
+                    <div class="font-mono text-left w-full">
+                        e) {{quizList[lastQuestionIndex].answers.answer_e}}
+                    </div>
+                </button>
+            </div>
+            <div class="w-full" *ngIf="quizList[lastQuestionIndex].answers.answer_f">
+                <button type="button" (click)="checkAnswer('f')"
+                    class="border border-transparent p-2 rounded-lg text-slate-500 w-full hover:text-white hover:border-green-500"
+                    id="answer-f">
+                    <div class="font-mono text-left w-full">
+                        f) {{quizList[lastQuestionIndex].answers.answer_f}}
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="text-green-500 font-mono text-center py-5" id="end-game-output" *ngIf="endgame">
+        Your final score: {{score}}
     </div>
 </section>
