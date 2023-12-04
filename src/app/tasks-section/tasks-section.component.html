@@ -73,9 +73,10 @@
         </div>
     </div>
 
-    <div class="flex flex-col items-center justify-start gap-4 pt-4 task_list overflow-y-auto" *ngIf="tasks" cdkDropList
-        [cdkDropListConnectedTo]="['tasks']" [cdkDropListData]="tasks" (cdkDropListDropped)="drop($event)" id="tasks">
-        <div class="border border-transparent hover:border-green-500 rounded-lg py-2 px-4 w-full flex justify-between items-center task_item gap-2"
+    <div class="flex flex-col items-center justify-start gap-4 pt-4 task_list overflow-y-auto w-full" *ngIf="tasks"
+        cdkDropList [cdkDropListConnectedTo]="['tasks']" [cdkDropListData]="tasks" (cdkDropListDropped)="drop($event)"
+        id="tasks">
+        <div class="border border-transparent hover:border-green-500 rounded-lg py-2 px-4 flex justify-between items-center task_item gap-2 w-full"
             *ngFor="let task of tasks; index as i" cdkDrag>
             <div class="text-white">
                 {{ task.name }}
