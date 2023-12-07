@@ -1,22 +1,47 @@
-<footer class="m-1 ring-1 ring-green-500 h-16 rounded-lg">
-    <div class="w-full h-full mx-auto p-4 md:flex md:items-center md:justify-between">
-        <span class="text-sm text-green-500 sm:text-center dark:text-gray-400">© 2023 <a
-                href="https://lucamacedone.com/" class="hover:underline hover:underline-offset-2">Luca Macedone</a>. All
-            Rights Reserved.
+<footer class="m-1 ring-1 ring-emerald-400 dark:ring-emerald-500 h-max rounded-lg">
+    <div
+        class="w-full h-full mx-auto p-4 md:flex flex-col-reverse md:flex-row gap-4 md:gap-0 md:items-center md:justify-between">
+        <span class="text-sm text-emerald-400 dark:text-emerald-500 sm:text-center flex flex-wrap gap-1 items-center">
+            © 2023
+            <a href="https://lucamacedone.com/" class="hover:underline hover:underline-offset-2">
+                Luca Macedone
+            </a>
+            All Rights Reserved.
         </span>
-        <!-- <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+        <ul
+            class="hidden md:flex flex-wrap items-center gap-3 text-sm font-medium text-emerald-400 dark:text-emerald-500 sm:mt-0">
             <li>
-                <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                <a href="https://lucamacedone.com" class="hover:underline hover:underline-offset-2">About Luca
+                    Macedone</a>
             </li>
             <li>
-                <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                <button type="button"
+                    class="text-emerald-400 dark:text-emerald-500 flex items-center justify-center ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 rounded-lg p-2"
+                    (click)="toggleDarkMode()">
+                    <div class="font-light h-6 flex gap-2" *ngIf="!darkTheme">
+                        <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M10 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-11a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm0 12a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1ZM4.343 5.757a1 1 0 0 0 1.414-1.414L4.343 2.929a1 1 0 0 0-1.414 1.414l1.414 1.414Zm11.314 8.486a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM4 10a1 1 0 0 0-1-1H1a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm15-1h-2a1 1 0 1 0 0 2h2a1 1 0 0 0 0-2ZM4.343 14.243l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414a1 1 0 0 0-1.414-1.414ZM14.95 6.05a1 1 0 0 0 .707-.293l1.414-1.414a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 .707 1.707Z" />
+                        </svg>
+                        Light
+                    </div>
+                    <div class="font-light h-6 flex gap-2" *ngIf="darkTheme">
+                        <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 18 20">
+                            <path
+                                d="M17.8 13.75a1 1 0 0 0-.859-.5A7.488 7.488 0 0 1 10.52 2a1 1 0 0 0 0-.969A1.035 1.035 0 0 0 9.687.5h-.113a9.5 9.5 0 1 0 8.222 14.247 1 1 0 0 0 .004-.997Z" />
+                        </svg>
+                        Dark
+                    </div>
+                </button>
+            </li>
+            <!--<li>
+                <a href="#" class="hover:underline hover:underline-offset-2">Licensing</a>
             </li>
             <li>
-                <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-            </li>
-            <li>
-                <a href="#" class="hover:underline">Contact</a>
-            </li>
-        </ul> -->
+                <a href="#" class="hover:underline hover:underline-offset-2">Contact</a>
+            </li> -->
+        </ul>
     </div>
 </footer>

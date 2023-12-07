@@ -1,13 +1,65 @@
 <div class="flex flex-col gap-5 overflow-y-auto h-full p-1" *ngIf="news.length > 0">
     <a [href]="article.url"
-        class="ring-1 ring-transparent hover:ring-green-500 text-white p-4 rounded-lg flex flex-col shadow-lg"
+        class="ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 dark:text-emerald-50 text-gray-950 p-4 rounded-lg flex flex-col shadow-lg shadow-gray-200 dark:shadow-black"
         *ngFor="let article of news; index as i">
-        <img [src]="article.urlToImage" [alt]="article.title" class="bg-slate-600 rounded-lg object-cover w-full h-32"
-            *ngIf="article.urlToImage">
+        <img [src]="article.urlToImage" [alt]="article.title"
+            class="bg-slate-400 dark:bg-slate-600 rounded-lg object-cover w-full h-32" *ngIf="article.urlToImage">
         <div class="flex items-center justify-between">
-            <small class="font-mono text-green-500">{{article.author}}</small>
+            <small class="font-mono text-emerald-400 dark:text-emerald-500">{{article.author}}</small>
             <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
         </div>
         <h3 class="text-lg font-semibold">{{article.title}}</h3>
     </a>
+</div>
+
+<!-- LOADING -->
+<div class="flex flex-col gap-5 overflow-y-auto h-full p-1" *ngIf="!(news.length > 0)">
+    <div
+        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+        <div class="flex items-center justify-between">
+            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        </div>
+        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
+    </div>
+    <div
+        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+        <div class="flex items-center justify-between">
+            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        </div>
+        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
+    </div>
+    <div
+        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+        <div class="flex items-center justify-between">
+            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        </div>
+        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
+    </div>
+    <div
+        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+        <div class="flex items-center justify-between">
+            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        </div>
+        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
+    </div>
+    <div
+        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+        <div class="flex items-center justify-between">
+            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        </div>
+        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
+    </div>
+    <div
+        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+        <div class="flex items-center justify-between">
+            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        </div>
+        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
+    </div>
 </div>

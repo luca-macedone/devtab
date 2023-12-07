@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.ms-dark-bg {
+    background-color: theme("colors.gray.950") !important;
+}
 body {
-    background-color: theme("colors.black");
+    background-color: theme("colors.gray.100");
 }

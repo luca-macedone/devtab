@@ -64,6 +64,7 @@ export class QuizSectionComponent implements OnInit {
         if (response.status == 200) {
           // console.log(response.data)
           this.loading = false
+          this.quizStarted = true
           this.quizList = response.data
         }
       })
@@ -77,15 +78,6 @@ export class QuizSectionComponent implements OnInit {
     this.endgame = false
     this.lastQuestionIndex = 0
     this.score = 0
-
-    // if (!this.loading) {
-    //   this.quizStarted = true
-    // }
-    setTimeout(() => {
-      if (!this.loading) {
-        this.quizStarted = true
-      }
-    }, 1000)
   }
 
   endGame() {
