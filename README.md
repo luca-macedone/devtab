@@ -1,4 +1,9 @@
 # DevTab: La Tua Dashboard Personalizzata per lo Sviluppo Web
+
+<img src="https://skillicons.dev/icons?i=html,scss,tailwind,ts,angular">
+
+***
+
 **[ IT ]**
 
 **DevTab** è una web app innovativa sviluppata con _Angular_, progettata per migliorare l'efficienza e l'esperienza di navigazione di sviluppatori e appassionati di tecnologia. 
@@ -10,10 +15,10 @@ Questa app unica include:
 - **Barra di Ricerca Integrata**: Accedi rapidamente ai risultati di ricerca Google direttamente dalla tua dashboard.
 
 **DevTab** è più di una semplice pagina di default del browser: è un compagno versatile per ogni sviluppatore. Scopri di più e prova la demo sul mio sito.
-
+***
 **[ EN ]**
 
-DevTab is an innovative web app developed with Angular, designed to enhance the efficiency and browsing experience for developers and technology enthusiasts. This unique app includes:
+DevTab is an innovative web app developed with _Angular_, designed to enhance the efficiency and browsing experience for developers and technology enthusiasts. This unique app includes:
 
 - **News Aggregator:** Stay up-to-date with the latest daily news via FeedRSS integration.
 - **ToDo List:** Organize your daily tasks with an integrated to-do list, perfect for work and research sessions.
@@ -22,5 +27,3 @@ DevTab is an innovative web app developed with Angular, designed to enhance the 
 - **Integrated Search Bar:** Quickly access Google search results directly from your dashboard.
 
 DevTab is more than just a default browser page: it's a versatile companion for every developer. Discover more and try the demo on my website.
-
-<img src="https://skillicons.dev/icons?i=html,scss,tailwind,ts,angular">
