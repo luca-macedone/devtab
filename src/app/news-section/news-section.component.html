@@ -1,14 +1,19 @@
 <div class="flex flex-col gap-5 overflow-y-auto h-full p-3" *ngIf="news.length > 0">
     <a [href]="article.url"
-        class="ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 dark:text-emerald-50 text-gray-950 p-4 rounded-lg flex flex-col shadow-lg shadow-gray-200 dark:shadow-none"
+        class="ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 dark:text-emerald-50 text-gray-950 rounded-lg flex flex-col shadow-lg shadow-gray-200 dark:shadow-none relative"
         *ngFor="let article of news; index as i">
-        <img [src]="article.urlToImage" [alt]="article.title"
-            class="bg-slate-400 dark:bg-slate-600 rounded-lg object-cover w-full h-32" *ngIf="article.urlToImage">
-        <div class="flex items-center justify-between">
-            <small class="font-mono text-emerald-400 dark:text-emerald-500">{{article.author}}</small>
-            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        <img [src]="article.image" [alt]="article.title"
+            class="bg-slate-400 dark:bg-slate-600 rounded-lg object-cover w-full h-48 overflow-hidden"
+            *ngIf="article.image" />
+        <div class="absolute top-0 left-0 h-full w-full p-1 rounded-lg flex flex-col items-start justify-end">
+            <div class="backdrop-blur-md h-max w-full p-2 rounded-lg">
+                <div class="flex items-center justify-between">
+                    <small class="font-mono text-gray-950 dark:text-emerald-500">{{article.authors[0].name}}</small>
+                    <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+                </div>
+                <h3 class="text-lg font-semibold text-gray-50">{{article.title}}</h3>
+            </div>
         </div>
-        <h3 class="text-lg font-semibold">{{article.title}}</h3>
     </a>
 </div>
 
