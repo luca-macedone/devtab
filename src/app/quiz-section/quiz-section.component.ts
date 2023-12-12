@@ -83,6 +83,10 @@ export class QuizSectionComponent implements OnInit {
   endGame() {
     this.endgame = true
     this.quizStarted = false
+    this.quizList.length = 0
+    setTimeout(() => {
+      this.endgame = false
+    }, 3000)
   }
 
   checkAnswer(answer: string) {

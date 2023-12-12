@@ -1,4 +1,4 @@
-<section class="border border-emerald-400 dark:border-emerald-500 p-5 rounded-xl  overflow-y-scroll"
+<section class="border border-emerald-400 dark:border-emerald-500 p-5 rounded-xl overflow-y-scroll"
     [class]="quizStarted ? 'h-full':'h-max'">
     <div class="flex items-center justify-between">
         <h1 class="text-emerald-400 dark:text-emerald-500 font-mono">Dev Quiz
@@ -86,4 +86,9 @@
     <div class="text-emerald-400 dark:text-emerald-500 font-mono text-center py-5" id="end-game-output" *ngIf="endgame">
         Your final score: {{score}}
     </div>
+
 </section>
+<p class="text-slate-300 dark:text-slate-700 font-mono text-sm py-2" *ngIf="!quizStarted && !endgame">
+    This mini-game is challenge based on computer science quizzes, designed to test players
+    knowledge in the field of computer science. It is divided into three levels of difficulty.
+</p>
