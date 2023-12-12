@@ -1,27 +1,26 @@
-# StartingPage
+# DevTab: La Tua Dashboard Personalizzata per lo Sviluppo Web
+**[ IT ]**
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+**DevTab** è una web app innovativa sviluppata con _Angular_, progettata per migliorare l'efficienza e l'esperienza di navigazione di sviluppatori e appassionati di tecnologia. 
+Questa app unica include:
+- **Aggregatore di Notizie**: Rimani aggiornato con le ultime notizie del giorno attraverso l'integrazione con FeedRSS.
+- **ToDo List**: Organizza le tue attività giornaliere con una lista di cose da fare integrata, perfetta per sessioni di lavoro e ricerca.
+- **Quiz Game**: Metti alla prova le tue conoscenze IT con un minigioco basato sulle risorse di QuizAPI, con domande di varia difficoltà.
+- **Dark Mode**: Lavora comodamente di notte con la modalità oscura, realizzata utilizzando Tailwind per un comfort visivo ottimale.
+- **Barra di Ricerca Integrata**: Accedi rapidamente ai risultati di ricerca Google direttamente dalla tua dashboard.
 
-## Development server
+**DevTab** è più di una semplice pagina di default del browser: è un compagno versatile per ogni sviluppatore. Scopri di più e prova la demo sul mio sito.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**[ EN ]**
 
-## Code scaffolding
+DevTab is an innovative web app developed with Angular, designed to enhance the efficiency and browsing experience for developers and technology enthusiasts. This unique app includes:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **News Aggregator:** Stay up-to-date with the latest daily news via FeedRSS integration.
+- **ToDo List:** Organize your daily tasks with an integrated to-do list, perfect for work and research sessions.
+- **Quiz Game:** Test your IT knowledge with a mini-game based on QuizAPI resources, featuring questions of varying difficulty.
+- **Dark Mode:** Work comfortably at night with the dark mode, created using Tailwind for optimal visual comfort.
+- **Integrated Search Bar:** Quickly access Google search results directly from your dashboard.
 
-## Build
+DevTab is more than just a default browser page: it's a versatile companion for every developer. Discover more and try the demo on my website.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<img src="https://skillicons.dev/icons?i=html,scss,tailwind,ts,angular">
