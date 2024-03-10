@@ -1,5 +1,7 @@
 # DevTab: La Tua Dashboard Personalizzata per lo Sviluppo Web
 
+![GitHub Release](https://img.shields.io/github/v/release/luca-macedone/starting_page)
+
 <img src="https://skillicons.dev/icons?i=html,scss,tailwind,ts,angular">
 
 ***
