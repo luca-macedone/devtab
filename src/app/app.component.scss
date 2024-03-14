@@ -6,11 +6,12 @@
     background: linear-gradient(to top, theme("colors.gray.950"), theme("colors.transparent")) !important;
 }
 #mask {
-    position: sticky;
-    bottom: -1rem;
-    left: -1rem;
+    // position: sticky;
+    // bottom: -1rem;
+    // left: -1rem;
     background: linear-gradient(to top, theme("colors.gray.100"), theme("colors.transparent"));
-    z-index: 10;
-    height: 150px;
-    width: 110%;
+    // z-index: 10;
+    // height: 150px;
+    // width: 100%;
+    width: calc(100% - 12px);
 }
