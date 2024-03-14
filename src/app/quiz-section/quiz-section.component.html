@@ -1,5 +1,5 @@
-<section class="border border-emerald-400 dark:border-emerald-500 p-5 rounded-xl overflow-y-scroll"
-    [class]="quizStarted ? 'h-full':'h-max'">
+<section class="border border-emerald-400 dark:border-emerald-500 p-5 rounded-xl"
+    [class]="quizStarted ? 'h-full overflow-y-scroll':'h-max overflow-y-auto'">
     <div class="flex items-center justify-between">
         <h1 class="text-emerald-400 dark:text-emerald-500 font-mono">Dev Quiz
             <span class="text-gray-950 dark:text-emerald-50" *ngIf="quizStarted">
