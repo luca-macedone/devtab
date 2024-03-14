@@ -33,6 +33,8 @@ export class TasksSectionComponent {
     this.taskModel.name = ''
     this.localStorageService.removeItem('taskList')
     this.localStorageService.setItem('taskList', this.tasks)
+
+
     // console.log(this.tasks)
   }
 

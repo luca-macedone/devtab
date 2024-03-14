@@ -14,6 +14,11 @@ import { FooterSectionComponent } from './footer-section/footer-section.componen
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ClockItemComponent } from './clock-item/clock-item.component';
 import { QuizSectionComponent } from './quiz-section/quiz-section.component';
+
+import { NgIconsModule } from '@ng-icons/core';
+import { faSolidCircleCheck, faSolidArrowUp, faSolidCirclePlus, faSolidCircleXmark, faSolidSun, faSolidMoon, faSolidCopyright } from '@ng-icons/font-awesome/solid';
+import { faCircleCheck } from '@ng-icons/font-awesome/regular';
+import { faBrandLinkedinIn, faBrandGithub } from '@ng-icons/font-awesome/brands';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +35,7 @@ import { QuizSectionComponent } from './quiz-section/quiz-section.component';
     AppRoutingModule,
     FormsModule,
     DragDropModule,
+    NgIconsModule.withIcons({ faSolidCircleCheck, faCircleCheck, faSolidArrowUp, faSolidCirclePlus, faSolidCircleXmark, faSolidSun, faSolidMoon, faBrandLinkedinIn, faBrandGithub, faSolidCopyright })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -28,6 +28,14 @@ export class FooterSectionComponent implements OnInit {
     this.setScrollbarColor()
   }
 
+  isDark() {
+    if (document.body.classList.contains('dark')) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   toggleDarkMode() {
     if (this.localStorageService.getItem('theme') == 'light') {
       this.localStorageService.removeItem('theme')
