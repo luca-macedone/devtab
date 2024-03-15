@@ -2,7 +2,7 @@
     class="text-emerald-400 dark:text-emerald-500 font-mono text-xl sticky top-0 left-0 z-10 ps-5 pb-3 dark:bg-opacity-60 bg-gray-100 dark:bg-transparent dark:bg-gradient-to-b dark:from-gray-950 dark:to-transparent inline-flex backdrop-blur-lg w-full">
     Daily Top News
 </h2>
-<div class="flex flex-col gap-3 overflow-y-auto h-full w-full p-3" *ngIf="news.length > 0">
+<div class="flex flex-col gap-3 overflow-y-auto h-full w-full p-3" *ngIf="!isLoading; else loadingSection">
     <a [href]="article.url"
         class="border-[2px] border-transparent hover:border-emerald-400 hover:dark:border-emerald-500 overflow-hidden transition-all ease-in-out duration-200 rounded-xl flex flex-col shadow-lg shadow-gray-200 dark:shadow-none relative h-48"
         *ngFor="let article of news; index as i">
@@ -15,7 +15,7 @@
                 <div class="flex items-center justify-between gap-2 flex-wrap">
                     <small class="font-mono text-emerald-400 dark:text-emerald-600 font-semibold"
                         *ngFor="let author of article.authors">{{author.name}}</small>
-                    <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+
                 </div>
                 <h3 class="text-lg font-semibold dark:text-emerald-50 text-gray-950">{{article.title}}</h3>
             </div>
@@ -24,53 +24,48 @@
 </div>
 
 <!-- LOADING -->
-<div class="flex flex-col gap-5 overflow-y-auto h-full p-1" *ngIf="!(news.length > 0)">
-    <div
-        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
-        <div class="flex items-center justify-between">
-            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
-            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+<ng-template #loadingSection>
+    <div class="flex flex-col gap-5 overflow-y-auto h-full p-1">
+        <div class="animate-pulse p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+            <div class="flex items-center justify-between">
+                <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            </div>
+            <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
         </div>
-        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
-    </div>
-    <div
-        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
-        <div class="flex items-center justify-between">
-            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
-            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        <div
+            class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+            <div class="flex items-center justify-between">
+                <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            </div>
+            <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
         </div>
-        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
-    </div>
-    <div
-        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
-        <div class="flex items-center justify-between">
-            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
-            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        <div
+            class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+            <div class="flex items-center justify-between">
+                <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            </div>
+            <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
         </div>
-        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
-    </div>
-    <div
-        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
-        <div class="flex items-center justify-between">
-            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
-            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        <div
+            class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+            <div class="flex items-center justify-between">
+                <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            </div>
+            <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
         </div>
-        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
-    </div>
-    <div
-        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
-        <div class="flex items-center justify-between">
-            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
-            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        <div
+            class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+            <div class="flex items-center justify-between">
+                <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            </div>
+            <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
         </div>
-        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
-    </div>
-    <div
-        class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
-        <div class="flex items-center justify-between">
-            <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
-            <!-- <small>{{formatDate(article.publishedAt)}}</small> -->
+        <div
+            class="animate-pulse ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 p-4 rounded-lg shadow-gray-200 dark:shadow-black flex flex-col items-start gap-2">
+            <div class="flex items-center justify-between">
+                <small class="w-24 h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></small>
+            </div>
+            <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
         </div>
-        <h3 class="w-full h-4 bg-slate-400 dark:bg-gray-800 rounded-lg"></h3>
     </div>
-</div>
+</ng-template>
