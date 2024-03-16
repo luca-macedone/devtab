@@ -8,28 +8,65 @@ import { environment } from '../../environments/environment';
   styleUrl: './news-section.component.scss'
 })
 export class NewsSectionComponent implements OnInit {
-  // news_api_base = `https://newsapi.org/v2/top-headlines`
-  // api_query = '?q=WebDevelopment'
-  // from_date_query = `&from=${this.getYesterday()}`
-  // sorting_query = '&sortBy=popularity'
-  // key = `&apiKey=${environment.NEWS_API_KEY}`
-  // category_query = '&categoty=technology'
-  // country_query = '?country=it'
-
   news: Array<any> = []
+  googleNews: Array<any> = []
+  mediumNews: Array<any> = []
+  isLoading: boolean = true
 
   ngOnInit(): void {
-    // .get(`${this.news_api_base + this.country_query + this.sorting_query + this.key}`)
-    axios
-      .get(`${environment.NEWS}`)
+    this.fetchNews()
+  }
+
+  async fetchNews() {
+    this.isLoading = true;
+
+    try {
+      await Promise.all([
+        this.fetchGoogleTopNews(),
+        this.fetchMediumTopNews()
+      ])
+    } catch (error) {
+      console.error(error);
+    } finally {
+      this.news = [...this.googleNews, ...this.mediumNews]
+      this.isLoading = false
+    }
+
+
+
+  }
+
+  async fetchGoogleTopNews(): Promise<void> {
+    const response = await axios
+      .get(`${environment.GOOGLE_TOP_NEWS}`)
       .then(response => {
-        if (response) {
-          this.news = response.data.items
-          // console.log(this.news)
+        // console.log(response)
+        if (response.status == 200) {
+          this.googleNews = response.data.items;
+        } else {
+          this.googleNews = []
+        };
+      })
+      .catch(error => {
+        // console.error(error)
+        throw new Error(error);
+      })
+  }
+
+  async fetchMediumTopNews(): Promise<void> {
+    const result = await axios
+      .get(`${environment.MEDIUM_TOP_NEWS}`)
+      .then(response => {
+        if (response.status == 200) {
+          this.mediumNews = response.data.items
+          // console.log(response.data.items, this.mediumNews)
+        } else {
+          this.mediumNews = []
         }
       })
       .catch(error => {
-        console.error(error)
+        // console.error(error)
+        throw new Error(error);
       })
   }
 

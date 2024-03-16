@@ -25,6 +25,15 @@ export class FooterSectionComponent implements OnInit {
     }
     this.setBg()
     this.setMask()
+    this.setScrollbarColor()
+  }
+
+  isDark() {
+    if (document.body.classList.contains('dark')) {
+      return true
+    } else {
+      return false
+    }
   }
 
   toggleDarkMode() {
@@ -41,6 +50,7 @@ export class FooterSectionComponent implements OnInit {
     }
     this.setBg()
     this.setMask()
+    this.setScrollbarColor()
   }
 
   setBg() {
@@ -48,6 +58,16 @@ export class FooterSectionComponent implements OnInit {
       document.body.classList.add('ms-dark-bg')
     } else {
       document.body.classList.remove('ms-dark-bg')
+    }
+  }
+
+  setScrollbarColor() {
+    if (document.body.classList.contains('dark')) {
+      document.body.classList.remove('scroll-light')
+      document.body.classList.add('scroll-dark')
+    } else {
+      document.body.classList.remove('scroll-dark')
+      document.body.classList.add('scroll-light')
     }
   }
 

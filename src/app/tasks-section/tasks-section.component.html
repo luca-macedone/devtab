@@ -2,15 +2,9 @@
     <div class="flex items-center justify-between h-max w-full px-4 border-b-2 border-emerald-400 py-2">
         <h2 class="text-emerald-400 dark:text-emerald-500 font-mono text-xl">Tasks</h2>
         <button
-            class="rounded-lg text-emerald-400 dark:text-emerald-500 px-4 py-2 w-max flex items-center justify-center gap-2 hover:ring-1 hover:ring-emerald-400 hover:dark:ring-emerald-500"
+            class="rounded-full text-emerald-400 dark:text-emerald-500 p-2 w-max flex items-center justify-center gap-2 hover:scale-105 hover:bg-slate-200 dark:hover:bg-gray-900 transition-all ease-in-out duration-200"
             type="button" data-modal-target="default-modal" data-modal-toggle="default-modal">
-            <div class="text-emerald-400 dark:text-emerald-500 h-8 aspect-square">
-                <svg className="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                    viewBox="0 0 20 20">
-                    <path
-                        d="M9.546.5a9.5 9.5 0 1 0 9.5 9.5 9.51 9.51 0 0 0-9.5-9.5ZM13.788 11h-3.242v3.242a1 1 0 1 1-2 0V11H5.304a1 1 0 0 1 0-2h3.242V5.758a1 1 0 0 1 2 0V9h3.242a1 1 0 1 1 0 2Z" />
-                </svg>
-            </div>
+            <ng-icon name="faSolidCirclePlus" class="text-emerald-400 dark:text-emerald-500 text-3xl" />
             <div class="font-mono">
                 New task
             </div>
@@ -22,53 +16,41 @@
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <!-- Modal content -->
-            <div class="relative bg-gray-100 dark:bg-gray-950 rounded-xl shadow text-emerald-50">
+            <div class="relative bg-gray-100 dark:bg-gray-950 rounded-2xl shadow text-emerald-50 flex flex-col gap-4">
                 <!-- Modal header -->
-                <div class="flex items-center justify-between p-4 md:p-5 ">
+                <div class="flex items-center justify-between p-4 pb-0">
                     <h3 class="text-xl font-semibold text-emerald-400 dark:text-emerald-500 font-mono">
                         New Task
                     </h3>
                     <button type="button"
-                        class="rounded-lg text-emerald-400 dark:text-emerald-500 px-4 py-2 w-max flex items-center justify-center gap-2 hover:ring-1 hover:ring-emerald-400 hover:dark:ring-emerald-500"
-                        data-modal-hide="default-modal">
-                        <div class="text-emerald-400 dark:text-emerald-500 h-8 aspect-square">
-                            <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path
-                                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" />
-                            </svg>
-                        </div>
-                        <div class="font-mono">Close</div>
+                        class="text-emerald-400 dark:text-emerald-500 p-2 w-max flex items-center justify-center gap-2 hover:scale-105 hover:bg-slate-200 dark:hover:bg-gray-900 transition-all ease-in-out duration-200 rounded-full"
+                        data-modal-hide="default-modal" title="Close">
+                        <ng-icon name="faSolidCircleXmark" class="text-emerald-400 dark:text-emerald-500 text-3xl" />
+                        <!-- <div class="font-mono">Close</div> -->
                     </button>
                 </div>
                 <!-- Modal body -->
-                <div class="p-4 md:p-5 space-y-4">
+                <div class="p-4 pt-0 space-y-4">
                     <div>
                         <label for="task-name"
                             class="block mb-2 text-sm font-medium text-emerald-400 dark:text-emerald-500">
                             Task name
                         </label>
-                        <input type="text" name="task-name" id="task-name"
-                            class="text-gray-950 dark:text-emerald-50 placeholder:text-emerald-600 dark:placeholder:text-emerald-800 bg-transparent ring-0 focus:drop-shadow-none focus:ring-0 focus:border-0 focus:border-b-2 focus:border-emerald-400 border-0 border-b-2 border-emerald-400 w-full"
-                            placeholder="Commit & Push" [(ngModel)]="taskModel.name">
+                        <div class="flex items-center w-full">
+                            <input type="text" name="task-name" id="task-name"
+                                class="text-gray-950 dark:text-emerald-50 placeholder:text-emerald-600 dark:placeholder:text-emerald-800 bg-slate-200 dark:bg-gray-900 ring-0 focus:drop-shadow-none focus:ring-0 border-[2px] border-slate-200 dark:border-gray-900 focus:border-emerald-400 dark:focus:border-emerald-500 w-full rounded-l-full"
+                                placeholder="Commit & Push code changes" [(ngModel)]="taskModel.name"
+                                (keyup.enter)="newTask()" [autofocus]="true" />
+                            <button data-modal-hide="default-modal" type="button"
+                                class="text-emerald-400 dark:text-emerald-500 hover:text-gray-950 dark:hover:text-gray-950 p-2.5 min-w-max flex items-center flex-nowrap gap-2 bg-slate-200 dark:bg-gray-900 hover:bg-emerald-400 dark:hover:bg-emerald-500 transition-all ease-in-out duration-200 rounded-r-full"
+                                (click)="newTask()">
+                                <ng-icon name="faSolidCirclePlus" class="text-2xl" />
+                                <span class="font-mono text-nowrap">
+                                    Add task
+                                </span>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <!-- Modal footer -->
-                <div class="flex items-center p-4 md:p-5">
-                    <button data-modal-hide="default-modal" type="button"
-                        class="rounded-lg text-emerald-400 dark:text-emerald-500 px-4 py-2 w-max flex items-center justify-center gap-2 hover:ring-1 hover:ring-emerald-400 hover:dark:ring-emerald-500"
-                        (click)="newTask()">
-                        <div class="text-emerald-400 dark:text-emerald-500 h-8 aspect-square">
-                            <svg className="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path
-                                    d="M9.546.5a9.5 9.5 0 1 0 9.5 9.5 9.51 9.51 0 0 0-9.5-9.5ZM13.788 11h-3.242v3.242a1 1 0 1 1-2 0V11H5.304a1 1 0 0 1 0-2h3.242V5.758a1 1 0 0 1 2 0V9h3.242a1 1 0 1 1 0 2Z" />
-                            </svg>
-                        </div>
-                        <div class="font-mono">
-                            Add task
-                        </div>
-                    </button>
                 </div>
             </div>
         </div>
@@ -77,38 +59,31 @@
     <div class="flex flex-col items-center justify-start gap-1 pt-4 task_list overflow-y-auto w-full"
         *ngIf="tasks.length > 0" cdkDropList [cdkDropListConnectedTo]="['tasks']" [cdkDropListData]="tasks"
         (cdkDropListDropped)="drop($event)" id="tasks">
-        <div class="border border-transparent hover:border-emerald-400 hover:dark:border-emerald-500 py-2 px-4 flex justify-between items-center task_item gap-2 w-full rounded-xl odd:bg-slate-200 odd:dark:bg-gray-900"
+        <div class="border border-transparent hover:border-emerald-400 dark:hover:border-emerald-500 py-2 px-4 flex justify-between items-start task_item gap-2 w-full rounded-xl odd:bg-slate-200 odd:dark:bg-gray-900 transition-all ease-in-out duration-200"
             *ngFor="let task of tasks; index as i" cdkDrag>
             <div class="text-gray-950 dark:text-emerald-50">
                 {{ task.name }}
             </div>
             <div class="flex items-center transition-all ease-in-out">
                 <button data-modal-hide="default-modal" type="button"
-                    class="rounded-lg text-emerald-400 dark:text-emerald-500 p-2 w-max flex items-center justify-center gap-2 hover:ring-1 hover:ring-emerald-400 hover:dark:ring-emerald-500"
+                    class="rounded-full text-emerald-400 dark:text-emerald-500 border-[1px] border-transparent hover:border-emerald-400 hover:dark:border-emerald-500 hover:scale-105 p-2 w-max flex items-center justify-center gap-2 transition-all ease-in-out duration-200"
                     (click)="removeTask(i)">
-                    <div
-                        class="text-emerald-400 dark:text-emerald-500 fill-emerald-500 h-8 aspect-square flex items-center">
-                        <svg class="" [class]="task.isDone?'hidden':''" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="m7 10 2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-                        <svg [class]="task.isDone?'':'hidden'" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                            fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                        </svg>
-                    </div>
-                    <div class="font-mono" [class]="task.isDone?'hidden':''">
-                        Done?
-                    </div>
+                    <span *ngIf="!task.isDone; else taskDone" class="font-mono flex items-center gap-2">
+                        <ng-icon name="faCircleCheck" class="text-emerald-400 dark:text-emerald-500 text-2xl" />
+                        <span>
+                            Done?
+                        </span>
+                    </span>
+                    <ng-template #taskDone>
+                        <span class="font-mono flex items-center gap-2">
+                            <ng-icon name="faSolidCircleCheck"
+                                class="text-emerald-400 dark:text-emerald-500 text-2xl" />
+                            <span>
+                                Nice!
+                            </span>
+                        </span>
+                    </ng-template>
                 </button>
-
-                <!-- <input [id]="'checkbox-'+i" type="checkbox" value=""
-                    class="w-4 h-4 text-emerald-400 dark:text-emerald-500 bg-slate-800 border-slate-900 rounded focus:ring-emerald-900 focus:ring-2"
-                    (click)="removeTask(i)">
-                <label [for]="'checkbox-'+i" class="ms-2 text-sm font-medium text-emerald-400 dark:text-emerald-500"
-                    (click)="removeTask(i)">Done</label> -->
             </div>
         </div>
     </div>
@@ -118,10 +93,7 @@
         <span class="">
             No tasks yet.. Add some task here
         </span>
-        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M5 13V1m0 0L1 5m4-4 4 4" />
-        </svg>
+        <ng-icon name="faSolidArrowUp" class="text-2xl" />
     </div>
 
 </section>
