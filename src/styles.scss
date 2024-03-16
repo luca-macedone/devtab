@@ -9,3 +9,42 @@
 body {
     background-color: theme("colors.gray.100");
 }
+
+body.scroll-light,
+body.scroll-dark {
+    --scrollbar-thumb-color: #34d399;
+    --scrollbar-track-color: transparent;
+}
+
+body.scroll-light {
+    --scrollbar-thumb-color: #34d399;
+    --scrollbar-thumb-hover-color: #6ee7b7;
+}
+
+body.scroll-dark {
+    --scrollbar-thumb-color: #065f46;
+    --scrollbar-thumb-hover-color: #064e3b;
+}
+
+body.scroll-light,
+body.scroll-dark {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+
+    & *::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    & *::-webkit-scrollbar-track {
+        background: var(--scrollbar-track-color);
+    }
+
+    & *::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb-color);
+        border-radius: 10px;
+    }
+
+    & *::-webkit-scrollbar-thumb:hover {
+        background: var(--scrollbar-thumb-hover-color);
+    }
+}
