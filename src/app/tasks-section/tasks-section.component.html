@@ -24,32 +24,69 @@
                     </h3>
                     <button type="button"
                         class="text-emerald-400 dark:text-emerald-500 p-2 w-max flex items-center justify-center gap-2 hover:scale-105 hover:bg-slate-200 dark:hover:bg-gray-900 transition-all ease-in-out duration-200 rounded-full"
-                        data-modal-hide="default-modal" title="Close">
+                        data-modal-hide="default-modal" title="Close" (click)="resetInputs()">
                         <ng-icon name="faSolidCircleXmark" class="text-emerald-400 dark:text-emerald-500 text-3xl" />
                         <!-- <div class="font-mono">Close</div> -->
                     </button>
                 </div>
                 <!-- Modal body -->
                 <div class="p-4 pt-0 space-y-4">
-                    <div>
-                        <label for="task-name"
-                            class="block mb-2 text-sm font-medium text-emerald-400 dark:text-emerald-500">
-                            Task name
-                        </label>
-                        <div class="flex items-center w-full">
-                            <input type="text" name="task-name" id="task-name"
-                                class="text-gray-950 dark:text-emerald-50 placeholder:text-emerald-600 dark:placeholder:text-emerald-800 bg-slate-200 dark:bg-gray-900 ring-0 focus:drop-shadow-none focus:ring-0 border-[2px] border-slate-200 dark:border-gray-900 focus:border-emerald-400 dark:focus:border-emerald-500 w-full rounded-l-full"
-                                placeholder="Commit & Push code changes" [(ngModel)]="taskModel.name"
-                                (keyup.enter)="newTask()" [autofocus]="true" />
-                            <button data-modal-hide="default-modal" type="button"
-                                class="text-emerald-400 dark:text-emerald-500 hover:text-gray-950 dark:hover:text-gray-950 p-2.5 min-w-max flex items-center flex-nowrap gap-2 bg-slate-200 dark:bg-gray-900 hover:bg-emerald-400 dark:hover:bg-emerald-500 transition-all ease-in-out duration-200 rounded-r-full"
-                                (click)="newTask()">
-                                <ng-icon name="faSolidCirclePlus" class="text-2xl" />
-                                <span class="font-mono text-nowrap">
-                                    Add task
-                                </span>
-                            </button>
+                    <div class="flex flex-col gap-4">
+                        <div>
+                            <label for="task-name"
+                                class="block mb-2 text-sm font-medium text-emerald-400 dark:text-emerald-500">
+                                Task name
+                            </label>
+                            <div class="flex items-center w-full">
+                                <input type="text" name="task-name" id="task-name"
+                                    class="text-gray-950 dark:text-emerald-50 placeholder:text-emerald-600 dark:placeholder:text-emerald-800 bg-slate-200 dark:bg-gray-900 ring-0 focus:drop-shadow-none focus:ring-0 border-[2px] border-slate-200 dark:border-gray-900 focus:border-emerald-400 dark:focus:border-emerald-500 w-full rounded-l-full"
+                                    placeholder="Commit & Push code changes" [(ngModel)]="taskModel.name"
+                                    (keyup.enter)="newTask()" [autofocus]="true" />
+                                <button data-modal-hide="default-modal" type="button"
+                                    class="text-emerald-400 dark:text-emerald-500 hover:text-gray-950 dark:hover:text-gray-950 p-2.5 min-w-max flex items-center flex-nowrap gap-2 bg-slate-200 dark:bg-gray-900 hover:bg-emerald-400 dark:hover:bg-emerald-500 transition-all ease-in-out duration-200 rounded-r-full"
+                                    (click)="newTask()">
+                                    <ng-icon name="faSolidCircleCheck" class="text-2xl" />
+                                    <span class="font-mono text-nowrap">
+                                        Submit
+                                    </span>
+                                </button>
+                            </div>
                         </div>
+                        <div class="flex items-center gap-2 w-full">
+                            <label for="checklist-toggler"
+                                class="py-2 flex items-center justify-center gap-2 w-max border-2 border-emerald-400 dark:border-emerald-600 rounded-full px-4 cursor-pointer"
+                                [class]="isChecklistEnabled ? 'bg-emerald-400 dark:bg-emerald-600 text-emerald-50':'text-emerald-400 dark:text-emerald-600'">
+                                <ng-icon name="faSolidListCheck" />
+                                Checklist
+                                <input type="checkbox" name="checklist-toggler" id="checklist-toggler" class="hidden"
+                                    [(ngModel)]="isChecklistEnabled">
+                            </label>
+                            <div *ngIf="isChecklistEnabled" class="w-full flex items-center">
+                                <input type="text" name="checklist-item" id="checklist-item"
+                                    class="text-gray-950 dark:text-emerald-50 placeholder:text-emerald-600 dark:placeholder:text-emerald-800 bg-slate-200 dark:bg-gray-900 ring-0 focus:drop-shadow-none focus:ring-0 border-[2px] border-slate-200 dark:border-gray-900 focus:border-emerald-400 dark:focus:border-emerald-500 w-full rounded-l-full"
+                                    [(ngModel)]="checklistItemModel">
+                                <button
+                                    class="text-emerald-400 dark:text-emerald-500 hover:text-gray-950 dark:hover:text-gray-950 p-2.5 min-w-max flex items-center flex-nowrap gap-2 bg-slate-200 dark:bg-gray-900 hover:bg-emerald-400 dark:hover:bg-emerald-500 transition-all ease-in-out duration-200 rounded-r-full"
+                                    (click)="pushChecklistItem()">
+                                    <ng-icon name="faSolidCirclePlus" class="text-2xl" />
+                                    <span class="font-mono text-nowrap">
+                                        Add to list
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <ul *ngIf="isChecklistEnabled && taskModel.checklist.length > 0"
+                            class="max-h-96 overflow-y-scroll">
+                            <li>
+                                <h6 class="text-xs text-emerald-400 dark:text-emerald-600">Checklist</h6>
+                            </li>
+                            <li *ngFor="let item of taskModel.checklist"
+                                class="flex items-center gap-3 odd:bg-slate-200 odd:dark:bg-gray-900 px-5 py-2 rounded-xl">
+                                <span>
+                                    {{item.text}}
+                                </span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -61,8 +98,25 @@
         (cdkDropListDropped)="drop($event)" id="tasks">
         <div class="border border-transparent hover:border-emerald-400 dark:hover:border-emerald-500 py-2 px-4 flex justify-between items-start task_item gap-2 w-full rounded-xl odd:bg-slate-200 odd:dark:bg-gray-900 transition-all ease-in-out duration-200"
             *ngFor="let task of tasks; index as i" cdkDrag>
-            <div class="text-gray-950 dark:text-emerald-50">
-                {{ task.name }}
+            <div class="text-gray-950 dark:text-emerald-50 flex flex-col gap-4">
+                <strong>
+                    {{ task.name }}
+                </strong>
+                <ul class="flex flex-col gap-2" *ngIf="task.checklist.length > 0">
+                    <li>
+                        <h6 class="text-xs text-emerald-400 dark:text-emerald-600">Checklist</h6>
+                    </li>
+                    <li *ngFor="let item of task.checklist; index as j" class="flex items-center gap-3">
+                        <label [for]="'task-checklist-item'+j" class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" [name]="'task-checklist-item'+j" [id]="'task-checklist-item'+j"
+                                (click)="changeChecklistItemStatus(i, j)" [checked]="item.done"
+                                class="text-emerald-400 dark:text-emerald-600 focus:outline-none focus-within:outline-none border-0 cursor-pointer rounded-sm">
+                            <span [class]="item.done ? 'line-through':''">
+                                {{item.text}}
+                            </span>
+                        </label>
+                    </li>
+                </ul>
             </div>
             <div class="flex items-center transition-all ease-in-out">
                 <button data-modal-hide="default-modal" type="button"
