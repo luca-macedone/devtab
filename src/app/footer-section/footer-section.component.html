@@ -1,18 +1,19 @@
 <footer
-    class="w-full h-full flex items-center justify-between gap-2 border-[1px] bg-gray-50 dark:bg-gray-950 border-emerald-400 dark:border-emerald-500 rounded-xl px-5 py-3 mx-auto">
+    class="w-full h-full flex items-center justify-between gap-2 border-[1px] bg-gray-50 dark:bg-gray-950 border-emerald-400 dark:border-emerald-500 rounded-xl px-3 md:px-5 py-3 mx-auto">
     <div class="flex items-center gap-4 w-full">
         <img src="../../assets/images/full_logo_light.svg" class="object-contain h-8 hidden sm:block" *ngIf="isDark()">
         <img src="../../assets/images/full_logo_dark.svg" class="object-contain h-8 hidden sm:block" *ngIf="!isDark()">
         <div class="w-full flex flex-col justify-center">
-            <div class="text-gray-950 dark:text-gray-50 w-full text-xs flex items-center justify-start gap-3">
-                <div class="flex items-center gap-2">
+            <div
+                class="text-gray-950 dark:text-gray-50 w-full text-xs flex flex-nowrap items-center justify-start gap-3">
+                <div class="flex items-center gap-2 w-full sm:w-max">
                     <ng-icon name="faSolidCopyright" />
-                    <div>
+                    <span class="w-max">
                         2024 by
-                    </div>
+                    </span>
                 </div>
                 <a href="https://lucamacedone.com/"
-                    class="hover:underline hover:underline-offset-2 font-mono w-max font-semibold text-emerald-400 dark:text-emerald-500">
+                    class="hover:underline hover:underline-offset-2 font-mono w-full text-nowrap font-semibold text-emerald-400 dark:text-emerald-500">
                     Luca Macedone
                 </a>
             </div>
@@ -23,20 +24,20 @@
     </div>
     <nav class="w-full">
         <ul
-            class="w-full flex flex-wrap md:flex-nowrap items-center md:justify-end gap-2 text-sm font-regular text-emerald-400 dark:text-emerald-500 sm:mt-0">
+            class="w-full flex flex-wrap md:flex-nowrap items-center justify-end gap-2 text-sm font-regular text-emerald-400 dark:text-emerald-500 sm:mt-0">
             <li>
                 <button type="button" data-tooltip-target="tooltip-theme"
                     class="text-emerald-400 dark:text-emerald-500 flex items-center justify-center ring-1 ring-transparent hover:ring-emerald-400 hover:dark:ring-emerald-500 rounded-lg p-2"
                     (click)="toggleDarkMode()">
                     <div class="font-light flex gap-2 items-center" *ngIf="!darkTheme">
                         <ng-icon name="faSolidSun" class="text-2xl" />
-                        <span>
+                        <span class="hidden md:block">
                             Light
                         </span>
                     </div>
                     <div class="font-light flex gap-2 items-center" *ngIf="darkTheme">
                         <ng-icon name="faSolidMoon" class="text-2xl" />
-                        <span>
+                        <span class="hidden md:block">
                             Dark
                         </span>
                     </div>
