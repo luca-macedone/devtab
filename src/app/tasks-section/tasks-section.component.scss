@@ -1,26 +1,12 @@
-.task_list {
-    .task_item {
-        cursor: grab;
-    }
+// .task_list {
+//     .task_item {
+//         cursor: grab;
+//     }
 
-    .task_item:active {
-        cursor: grabbing;
-    }
-    // .task_item.cdk-drag-preview {
-    //     opacity: 0.5; /* Adjust the opacity of the dragged element preview */
-    //     background-color: red; /* Customize the background color of the dragged element preview */
-    //     box-shadow: 0 4px 8px rgba(201, 201, 201, 0.5); /* Add a box shadow to the dragged element preview */
-    // }
-}
+//     .task_item:active {
+//         cursor: grabbing;
+//     }
+// }
 .drag-preview {
     border-color: theme("colors.emerald.400");
 }
-
-// .placeholder-item {
-//     background: theme("colors.gray.300") !important;
-//     border-color: theme("colors.emerald.400");
-//     // opacity: 0.75;
-//     .task_item {
-//         backdrop-filter: blur(10px) !important;
-//     }
-// }

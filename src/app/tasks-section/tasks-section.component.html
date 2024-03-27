@@ -1,4 +1,4 @@
-<section id="tasks" class="overflow-hidden max-h-full flex flex-col items-center justify-start w-full py-1">
+<section id="tasks" class="overflow-y-scroll h-full max-h-full flex flex-col items-center justify-start w-full py-1">
     <div class="flex items-center justify-between h-max w-full px-4 border-b-2 border-emerald-400 py-2">
         <h2 class="text-emerald-400 dark:text-emerald-500 font-mono text-xl">Tasks</h2>
         <button
@@ -52,10 +52,10 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="flex items-center gap-2 w-full">
+                        <div class="flex md:items-center flex-col md:flex-row gap-2 w-full">
                             <label for="checklist-toggler"
-                                class="py-2 flex items-center justify-center gap-2 w-max border-2 border-emerald-400 dark:border-emerald-600 rounded-full px-4 cursor-pointer"
-                                [class]="isChecklistEnabled ? 'bg-emerald-400 dark:bg-emerald-600 text-emerald-50':'text-emerald-400 dark:text-emerald-600'">
+                                class="py-2 flex items-center justify-center gap-2 w-max border-2 border-emerald-400 dark:border-emerald-600 rounded-full px-4 cursor-pointer bg-transparent transition-colors ease-in-out duration-200 active:scale-105"
+                                [class]="isChecklistEnabled ? 'bg-emerald-400 dark:bg-emerald-600 text-emerald-50 dark:text-emerald-50 hover:bg-transparent hover:dark:bg-transparent hover:text-emerald-400 dark:hover:text-emerald-600':'text-emerald-400 dark:text-emerald-600 hover:text-emerald-50 hover:dark:text-emerald-50 hover:bg-emerald-400 dark:hover:bg-emerald-600'">
                                 <ng-icon name="faSolidListCheck" />
                                 Checklist
                                 <input type="checkbox" name="checklist-toggler" id="checklist-toggler" class="hidden"
@@ -96,86 +96,55 @@
     <div class="flex flex-col items-center justify-start gap-1 pt-4 task_list overflow-y-auto w-full tasklist-container"
         *ngIf="tasks.length > 0" cdkDropList [cdkDropListConnectedTo]="['tasks']" [cdkDropListData]="tasks"
         (cdkDropListDropped)="drop($event)" id="tasks">
-        <div class="border border-transparent hover:border-emerald-400 dark:hover:border-emerald-500 py-2 px-4 flex justify-between items-start task_item gap-2 w-full rounded-xl odd:bg-slate-200 odd:dark:bg-gray-900 transition-all ease-in-out duration-200"
-            *ngFor="let task of tasks; index as i" cdkDrag [cdkDragPreviewClass]="'drag-preview'"
-            cdkDragBoundary=".tasklist-container">
-            <div class="h-14 w-full bg-slate-200 dark:bg-gray-900 rounded-xl border-2 border-slate-400 dark:border-emerald-900 border-dashed animate-pulse cursor-grabbing"
+        <div class="border border-transparent hover:border-emerald-400 dark:hover:border-emerald-500 py-2 px-4 flex flex-col justify-between items-start task_item gap-4 cursor-grab active:cursor-grabbing w-full min-h-20 rounded-xl odd:bg-slate-200 odd:dark:bg-gray-900 transition-all ease-in-out duration-200"
+            *ngFor="let task of tasks; index as i" cdkDrag cdkDragBoundary=".tasklist-container">
+            <div class="h-14 w-96 max-w-full bg-gray-50 dark:bg-gray-950 shadow-xl rounded-xl border-2 border-emerald-400 dark:border-emerald-600 cursor-grabbing"
+                *cdkDragPreview></div>
+            <div class="min-h-14 h-full w-full p-10 bg-slate-200 dark:bg-gray-900 rounded-xl border-2 border-slate-400 dark:border-emerald-900 border-dashed animate-pulse"
                 *cdkDragPlaceholder></div>
-            <div class="text-gray-950 dark:text-emerald-50 flex flex-col gap-4">
-                <strong>
+            <div class="text-gray-950 dark:text-emerald-50 h-full flex justify-between items-start w-full gap-4">
+                <strong class="mt-2">
                     {{ task.name }}
                 </strong>
-                <ul class="flex flex-col gap-2" *ngIf="task.checklist.length > 0">
-                    <li>
-                        <h6 class="text-xs text-emerald-400 dark:text-emerald-600">Checklist</h6>
-                    </li>
-                    <li *ngFor="let item of task.checklist; index as j" class="flex items-center gap-3">
-                        <label [for]="'task-checklist-item'+j" class="flex items-center gap-2 cursor-pointer">
-                            <input type="checkbox" [name]="'task-checklist-item'+j" [id]="'task-checklist-item'+j"
-                                (click)="changeChecklistItemStatus(i, j)" [checked]="item.done"
-                                class="text-emerald-400 dark:text-emerald-600 focus:outline-none focus-within:outline-none border-0 cursor-pointer rounded-sm">
-                            <span [class]="item.done ? 'line-through':''">
-                                {{item.text}}
-                            </span>
-                        </label>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex items-center transition-all ease-in-out">
-                <button data-modal-hide="default-modal" type="button"
-                    class="rounded-full text-emerald-400 dark:text-emerald-500 border-[1px] border-transparent hover:border-emerald-400 hover:dark:border-emerald-500 hover:scale-105 p-2 w-max flex items-center justify-center gap-2 transition-all ease-in-out duration-200"
-                    (click)="removeTask(i)">
-                    <span *ngIf="!task.isDone; else taskDone" class="font-mono flex items-center gap-2">
-                        <ng-icon name="faCircleCheck" class="text-emerald-400 dark:text-emerald-500 text-2xl" />
-                        <span>
-                            Done?
-                        </span>
-                    </span>
-                    <ng-template #taskDone>
-                        <span class="font-mono flex items-center gap-2">
-                            <ng-icon name="faSolidCircleCheck"
-                                class="text-emerald-400 dark:text-emerald-500 text-2xl" />
+                <div class="flex items-center transition-all ease-in-out">
+                    <button data-modal-hide="default-modal" type="button"
+                        class="rounded-full text-emerald-400 dark:text-emerald-500 border-[1px] border-transparent hover:border-emerald-400 hover:dark:border-emerald-500 hover:scale-105 p-2 w-max flex items-center justify-center gap-2 transition-all ease-in-out duration-200"
+                        (click)="removeTask(i)">
+                        <span *ngIf="!task.isDone; else taskDone" class="font-mono flex items-center gap-2">
+                            <ng-icon name="faCircleCheck" class="text-emerald-400 dark:text-emerald-500 text-2xl" />
                             <span>
-                                Nice!
+                                Done?
                             </span>
                         </span>
-                    </ng-template>
-                </button>
+                        <ng-template #taskDone>
+                            <span class="font-mono flex items-center gap-2">
+                                <ng-icon name="faSolidCircleCheck"
+                                    class="text-emerald-400 dark:text-emerald-500 text-2xl" />
+                                <span>
+                                    Nice!
+                                </span>
+                            </span>
+                        </ng-template>
+                    </button>
+                </div>
             </div>
+            <ul class="flex flex-col gap-2" *ngIf="task.checklist.length > 0">
+                <li>
+                    <h6 class="text-xs text-emerald-400 dark:text-emerald-600">Checklist</h6>
+                </li>
+                <li *ngFor="let item of task.checklist; index as j"
+                    class="flex items-center gap-3 text-emerald-400 dark:text-emerald-600">
+                    <label [for]="'task-checklist-item'+j" class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" [name]="'task-checklist-item'+j" [id]="'task-checklist-item'+j"
+                            (click)="changeChecklistItemStatus(i, j)" [checked]="item.done"
+                            class="text-emerald-400 dark:text-emerald-600 focus:outline-none focus-within:outline-none border-0 cursor-pointer rounded-sm">
+                        <span [class]="item.done ? 'line-through':''">
+                            {{item.text}}
+                        </span>
+                    </label>
+                </li>
+            </ul>
         </div>
-        <!-- <div
-            class="border border-transparent hover:border-emerald-400 dark:hover:border-emerald-500 py-2 px-4 flex justify-between items-start task_item gap-2 w-full rounded-xl odd:bg-slate-200 odd:dark:bg-gray-900 transition-all ease-in-out duration-200 placeholder-item">
-            <div class="text-gray-950 dark:text-emerald-50 flex flex-col gap-4" cdkDrag *cdkDragPlaceholder>
-                <strong>
-                    lorem ipsum
-                </strong>
-                <ul class="flex flex-col gap-2">
-                    <li>
-                        <h6 class="text-xs text-emerald-400 dark:text-emerald-600">Checklist</h6>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <label for="task-checklist-item" class="flex items-center gap-2 cursor-pointer">
-                            <input type="checkbox" name="task-checklist-item" id="task-checklist-item"
-                                class="text-emerald-400 dark:text-emerald-600 focus:outline-none focus-within:outline-none border-0 cursor-pointer rounded-sm">
-                            <span>
-                                amet dolor sir
-                            </span>
-                        </label>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex items-center transition-all ease-in-out">
-                <button data-modal-hide="default-modal" type="button"
-                    class="rounded-full text-emerald-400 dark:text-emerald-500 border-[1px] border-transparent hover:border-emerald-400 hover:dark:border-emerald-500 hover:scale-105 p-2 w-max flex items-center justify-center gap-2 transition-all ease-in-out duration-200">
-                    <span class="font-mono flex items-center gap-2">
-                        <ng-icon name="faCircleCheck" class="text-emerald-400 dark:text-emerald-500 text-2xl" />
-                        <span>
-                            Done?
-                        </span>
-                    </span>
-                </button>
-            </div>
-        </div> -->
     </div>
 
     <div class="border border-transparent my-4 py-4 px-4 flex justify-center items-center task_item gap-2 w-full rounded-xl bg-slate-200 dark:bg-gray-900 text-slate-600 dark:text-emerald-500"

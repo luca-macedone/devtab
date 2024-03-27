@@ -1,8 +1,8 @@
 <footer
-    class="w-full h-full flex items-center justify-between gap-2 border-[1px] border-emerald-400 dark:border-emerald-500 rounded-xl px-5 py-3">
+    class="w-full h-full flex items-center justify-between gap-2 border-[1px] bg-gray-50 dark:bg-gray-950 border-emerald-400 dark:border-emerald-500 rounded-xl px-5 py-3 mx-auto">
     <div class="flex items-center gap-4 w-full">
-        <img src="../../assets/images/full_logo_light.svg" class="object-contain h-8" *ngIf="isDark()">
-        <img src="../../assets/images/full_logo_dark.svg" class="object-contain h-8" *ngIf="!isDark()">
+        <img src="../../assets/images/full_logo_light.svg" class="object-contain h-8 hidden sm:block" *ngIf="isDark()">
+        <img src="../../assets/images/full_logo_dark.svg" class="object-contain h-8 hidden sm:block" *ngIf="!isDark()">
         <div class="w-full flex flex-col justify-center">
             <div class="text-gray-950 dark:text-gray-50 w-full text-xs flex items-center justify-start gap-3">
                 <div class="flex items-center gap-2">
