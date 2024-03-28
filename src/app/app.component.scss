@@ -2,19 +2,20 @@
 //     border: 1px solid palegreen;
 // }
 
-.mask-dark {
-    background: linear-gradient(to top, theme("colors.gray.950"), theme("colors.transparent")) !important;
-}
-#mask {
-    // position: sticky;
-    // bottom: -1rem;
-    // left: -1rem;
-    background: linear-gradient(to top, theme("colors.gray.100"), theme("colors.transparent"));
-    // z-index: 10;
-    // height: 150px;
-    // width: 100%;
-    width: calc(100% - 15px);
-}
+// .mask-dark {
+//     // background: linear-gradient(to top, theme("colors.gray.950"), theme("colors.transparent")) !important;
+//     background: linear-gradient(to top, theme("colors.dark.dark"), theme("colors.transparent")) !important;
+// }
+// #mask {
+//     // position: sticky;
+//     // bottom: -1rem;
+//     // left: -1rem;
+//     background: linear-gradient(to top, theme("colors.gray.100"), theme("colors.transparent"));
+//     // z-index: 10;
+//     // height: 150px;
+//     // width: 100%;
+//     width: calc(100% - 15px);
+// }
 
 .text-nowrap {
     text-wrap: nowrap !important;

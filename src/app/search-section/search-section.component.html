@@ -1,8 +1,8 @@
-<div class="w-full h-full flex flex-col justify-start items-center gap-10">
-    <img src="../../assets/images/full_logo_light.svg" class="h-10 w-full mb-10" *ngIf="isDark()">
-    <img src="../../assets/images/full_logo_dark.svg" class="h-10 w-full mb-10" *ngIf="!isDark()">
+<div class="flex flex-col items-center gap-10">
+    <img src="../../assets/images/logo_lg_dark.svg" class="w-64 h-max" *ngIf="isDark()">
+    <img src="../../assets/images/logo_lg_light.svg" class="w-64 h-max" *ngIf="!isDark()">
 
-    <app-clock-item class="hidden sm:block"></app-clock-item>
+    <app-clock-item class="hidden sm:block h-full"></app-clock-item>
 
-    <app-search-bar class="w-full"></app-search-bar>
+    <app-search-bar class="h-full w-full"></app-search-bar>
 </div>

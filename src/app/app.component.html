@@ -3,17 +3,18 @@
   <main
     class="h-full w-full p-4 pb-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-4 md:overflow-hidden justify-center items-center">
     <div class="relative row-span-1 sm:row-span-2 col-span-1 h-96 sm:h-full w-full overflow-hidden">
-      <div class="row-span-1 sm:row-span-2 col-span-1 h-96 sm:h-full w-full overflow-y-scroll relative flex flex-col">
+      <div
+        class="row-span-1 sm:row-span-2 col-span-1 h-96 sm:h-full w-full overflow-y-scroll relative flex flex-col p-4 sm:px-0 sm:pe-4 pt-0">
         <!-- <h2 class="text-emerald-400 dark:text-emerald-500 font-mono text-xl mb-3 ms-5">Daily Top News</h2> -->
         <app-news-section></app-news-section>
       </div>
-      <div id="mask" class="absolute bottom-0 left-0 z-10 h-[150px]"></div>
+      <!-- <div id="mask" class="absolute bottom-0 left-0 z-10 h-[150px]"></div> -->
     </div>
-    <div class="row-span-1 col-span-1 p-4 rounded-xl order-first md:order-none">
+    <div class="row-span-1 col-span-1 order-first h-full md:order-none">
       <app-search-section></app-search-section>
     </div>
     <div
-      class="row-span-1 sm:row-span-2 col-span-1 rounded-xl h-96 md:max-h-full md:h-full md:overflow-hidden px-4 sm:px-0">
+      class="row-span-1 sm:row-span-2 col-span-1 rounded-xl h-96 md:max-h-full md:h-full md:overflow-hidden px-4 sm:px-0 sm:ps-4">
       <app-tasks-section></app-tasks-section>
     </div>
     <div class="row-span-1 col-span-1 hidden sm:block rounded-xl px-4 sm:px-0 overflow-hidden h-full w-full">
