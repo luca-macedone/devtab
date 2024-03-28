@@ -1,6 +1,22 @@
-<form (ngSubmit)="submitForm()" class="w-full">
+<form class="w-full">
     <input type="search"
         class="px-5 py-3 text-lg text-dark-light dark:text-light-dark placeholder:text-primary-dark dark:placeholder:text-primary-light bg-light-light dark:bg-dark-light ring-0 focus:drop-shadow-none focus:ring-0 focus:border-0 focus:border-b-2 focus:border-primary-dark dark:focus:border-primary-light border-0 border-b-2 border-primary-dark dark:border-primary-light w-full shadow-lg shadow-light-dark dark:shadow-transparent focus:shadow-lg dark:hover:shadow-primary-light dark:focus:shadow-primary-light hover:shadow-primary-dark focus:shadow-primary-dark transition-all ease-in-out duration-200"
-        [(ngModel)]="searchInput" placeholder="Cerca.." name="searchInput" autofocus />
+        [formControl]="searchControl" placeholder="Cerca..." name="searchInput" autofocus (focus)="activateFocus()"
+        (blur)="removeFocus()" [autocomplete]="false" />
     <!-- <button type="submit">Cerca</button> -->
 </form>
+<div *ngIf="results.length > 0 && isInputFocus"
+    class="absolute top-[13rem] md:top-[18.4rem] z-20 left-0 max-h-80 w-full overflow-hidden bg-light-light dark:bg-dark-light text-dark-light dark:text-light-dark rounded-b-xl p-4 shadow-lg flex flex-col">
+    <ul class="flex flex-col gap-2 h-full overflow-y-scroll">
+        <li *ngFor="let item of results">
+            <a [href]="item.link" (click)="navigateTo(item.link)" target="_self"
+                class="flex flex-col gap-1 p-1 rounded-xl border border-transparent shadow-xl hover:border-primary-dark dark:hover:border-primary-light transition-all ease-in-out duration-200">
+                <h6
+                    class="font-semibold underline underline-offset-2 decoration-primary-dark dark:decoration-primary-light">
+                    {{item.title}}
+                </h6>
+                <small>{{item.snippet}}</small>
+            </a>
+        </li>
+    </ul>
+</div>
