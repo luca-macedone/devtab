@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { environment } from '../../environments/environment';
+import { HackerNewsServiceService } from '../services/hacker-news-service.service';
 
 @Component({
   selector: 'app-news-section',
@@ -11,7 +12,9 @@ export class NewsSectionComponent implements OnInit {
   news: Array<any> = []
   googleNews: Array<any> = []
   mediumNews: Array<any> = []
+  hackerNews: Array<any> = []
   isLoading: boolean = true
+  constructor(private hackerNewsService: HackerNewsServiceService) { }
 
   ngOnInit(): void {
     this.fetchNews()
@@ -25,10 +28,12 @@ export class NewsSectionComponent implements OnInit {
         this.fetchGoogleTopNews(),
         this.fetchMediumTopNews()
       ])
+      this.hackerNews = await this.hackerNewsService.fetch();
+      // console.log(this.hackerNews);
     } catch (error) {
       console.error(error);
     } finally {
-      this.news = [...this.googleNews, ...this.mediumNews]
+      this.news = [...this.googleNews, ...this.mediumNews, ...this.hackerNews]
       this.isLoading = false
     }
 

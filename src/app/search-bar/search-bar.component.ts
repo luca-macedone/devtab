@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GoogleSearchServiceService } from '../google-search-service.service';
+import { GoogleSearchServiceService } from '../services/google-search-service.service';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
