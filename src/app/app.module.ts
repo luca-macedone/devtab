@@ -20,6 +20,7 @@ import { faSolidCircleCheck, faSolidArrowUp, faSolidCirclePlus, faSolidCircleXma
 import { faCircleCheck } from '@ng-icons/font-awesome/regular';
 import { faBrandLinkedinIn, faBrandGithub } from '@ng-icons/font-awesome/brands';
 import { HttpClientModule } from '@angular/common/http';
+import { BookmarkSectionComponent } from './bookmark-section/bookmark-section.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterSectionComponent,
     SearchBarComponent,
     ClockItemComponent,
-    QuizSectionComponent
+    QuizSectionComponent,
+    BookmarkSectionComponent
   ],
   imports: [
     BrowserModule,
