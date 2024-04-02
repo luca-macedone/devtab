@@ -4,26 +4,34 @@
 @tailwind utilities;
 
 .ms-dark-bg {
-    background-color: theme("colors.gray.950") !important;
+    // background-color: theme("colors.gray.950") !important;
+    background-color: theme("colors.dark.light") !important;
+    // background-image: radial-gradient(circle, #0d0d0d, #141414, #1a1a1a, #202020, #262626) !important;
+    background-image: linear-gradient(to right top, #0d0d0d, #141414, #1a1a1a, #202020, #262626) !important;
 }
 body {
-    background-color: theme("colors.gray.100");
+    // background-color: theme("colors.gray.100");
+    background-color: theme("colors.light.light");
+    background-image: radial-gradient(circle, #d0d3d8, #d9dbde, #e2e2e5, #eaeaeb, #f2f2f2);
 }
 
 body.scroll-light,
 body.scroll-dark {
-    --scrollbar-thumb-color: #34d399;
+    // --scrollbar-thumb-color: #34d399;
+    --scrollbar-thumb-color: theme("colors.primary.light");
     --scrollbar-track-color: transparent;
 }
 
 body.scroll-light {
-    --scrollbar-thumb-color: #34d399;
-    --scrollbar-thumb-hover-color: #6ee7b7;
+    // --scrollbar-thumb-color: #34d399;
+    --scrollbar-thumb-color: theme("colors.primary.light");
+    // --scrollbar-thumb-hover-color: #6ee7b7;
 }
 
 body.scroll-dark {
-    --scrollbar-thumb-color: #065f46;
-    --scrollbar-thumb-hover-color: #064e3b;
+    // --scrollbar-thumb-color: #065f46;
+    --scrollbar-thumb-color: theme("colors.primary.dark");
+    // --scrollbar-thumb-hover-color: #064e3b;
 }
 
 body.scroll-light,

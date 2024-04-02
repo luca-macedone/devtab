@@ -1,10 +1,12 @@
-.task_list {
-    .task_item {
-        cursor: move;
-    }
-    // .task_item.cdk-drag-preview {
-    //     opacity: 0.5; /* Adjust the opacity of the dragged element preview */
-    //     background-color: white; /* Customize the background color of the dragged element preview */
-    //     box-shadow: 0 4px 8px rgba(201, 201, 201, 0.5); /* Add a box shadow to the dragged element preview */
-    // }
+// .task_list {
+//     .task_item {
+//         cursor: grab;
+//     }
+
+//     .task_item:active {
+//         cursor: grabbing;
+//     }
+// }
+.drag-preview {
+    border-color: theme("colors.primary.dark");
 }

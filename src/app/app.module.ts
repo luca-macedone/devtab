@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -16,9 +16,11 @@ import { ClockItemComponent } from './clock-item/clock-item.component';
 import { QuizSectionComponent } from './quiz-section/quiz-section.component';
 
 import { NgIconsModule } from '@ng-icons/core';
-import { faSolidCircleCheck, faSolidArrowUp, faSolidCirclePlus, faSolidCircleXmark, faSolidSun, faSolidMoon, faSolidCopyright } from '@ng-icons/font-awesome/solid';
+import { faSolidCircleCheck, faSolidArrowUp, faSolidCirclePlus, faSolidCircleXmark, faSolidSun, faSolidMoon, faSolidCopyright, faSolidListCheck, faSolidCheck } from '@ng-icons/font-awesome/solid';
 import { faCircleCheck } from '@ng-icons/font-awesome/regular';
 import { faBrandLinkedinIn, faBrandGithub } from '@ng-icons/font-awesome/brands';
+import { HttpClientModule } from '@angular/common/http';
+import { BookmarkSectionComponent } from './bookmark-section/bookmark-section.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,14 +30,17 @@ import { faBrandLinkedinIn, faBrandGithub } from '@ng-icons/font-awesome/brands'
     FooterSectionComponent,
     SearchBarComponent,
     ClockItemComponent,
-    QuizSectionComponent
+    QuizSectionComponent,
+    BookmarkSectionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     DragDropModule,
-    NgIconsModule.withIcons({ faSolidCircleCheck, faCircleCheck, faSolidArrowUp, faSolidCirclePlus, faSolidCircleXmark, faSolidSun, faSolidMoon, faBrandLinkedinIn, faBrandGithub, faSolidCopyright })
+    HttpClientModule,
+    NgIconsModule.withIcons({ faSolidCircleCheck, faCircleCheck, faSolidArrowUp, faSolidCirclePlus, faSolidCircleXmark, faSolidSun, faSolidMoon, faBrandLinkedinIn, faBrandGithub, faSolidCopyright, faSolidListCheck, faSolidCheck })
   ],
   providers: [],
   bootstrap: [AppComponent]
