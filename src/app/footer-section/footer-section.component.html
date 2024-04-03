@@ -26,7 +26,7 @@
         <ul
             class="w-full flex flex-wrap md:flex-nowrap items-center justify-end gap-2 text-sm font-regular text-primary-dark dark:text-primary-light sm:mt-0">
             <li>
-                <button type="button" data-tooltip-target="tooltip-theme"
+                <!-- <button type="button" data-tooltip-target="tooltip-theme"
                     class="rounded-full text-primary-dark dark:text-primary-light p-2 w-max flex items-center justify-center gap-2 hover:scale-105 hover:bg-light-dark dark:hover:bg-dark-dark transition-all ease-in-out duration-200"
                     (click)="toggleDarkMode()">
                     <div class="font-light flex gap-2 items-center" *ngIf="!darkTheme">
@@ -41,7 +41,28 @@
                             Dark
                         </span>
                     </div>
-                </button>
+                </button> -->
+                <div class="flex items-center justify-between h-11 overflow-hidden border-2 border-primary-dark dark:border-primary-light bg-light-dark dark:bg-dark-dark rounded-full p-2 transition-all duration-200 ease-in-out"
+                    [class]="isThemeSettingShowing ? 'w-28' : 'w-11'" (mouseenter)="isThemeSettingShowing = true"
+                    (mouseleave)="isThemeSettingShowing = false" data-tooltip-target="tooltip-theme">
+                    <ng-icon name="faSolidSun"
+                        class="text-2xl cursor-pointer hover:text-primary-dark dark:hover:text-primary-light hover:text-opacity-60 transition-all ease-in-out duration-200"
+                        [class]="themeSetting == 'light' ? 'text-primary-dark dark:text-primary-light drop-shadow' : 'text-light-light dark:text-muted-dark'"
+                        (click)="onChangeTheme('0')" *ngIf="isThemeSettingShowing" />
+                    <ng-icon name="faSolidGear"
+                        class="text-2xl cursor-pointer hover:text-primary-dark dark:hover:text-primary-light hover:text-opacity-60 transition-all ease-in-out duration-200"
+                        [class]="themeSetting == 'system' ? 'text-primary-dark dark:text-primary-light drop-shadow' : 'text-light-light dark:text-muted-dark'"
+                        (click)="onChangeTheme('1')" *ngIf="isThemeSettingShowing" />
+                    <ng-icon name="faSolidMoon"
+                        class="text-2xl cursor-pointer hover:text-primary-dark dark:hover:text-primary-light hover:text-opacity-60 transition-all ease-in-out duration-200"
+                        [class]="themeSetting == 'dark' ? 'text-primary-dark dark:text-primary-light drop-shadow' : 'text-light-light dark:text-muted-dark'"
+                        (click)="onChangeTheme('2')" *ngIf="isThemeSettingShowing" />
+                    <ng-icon name="faSolidPalette"
+                        class="text-2xl cursor-pointer hover:text-primary-dark dark:hover:text-primary-light hover:text-opacity-60 transition-all ease-in-out duration-200"
+                        *ngIf="!isThemeSettingShowing" />
+                </div>
+                <!-- <input type="range" min="0" max="2" step="1" (change)="onChangeTheme($event)" class="w-20"> -->
+
                 <div id="tooltip-theme" role="tooltip"
                     class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-dark-light dark:text-light-dark bg-light-light rounded-lg opacity-0 transition-opacity duration-300 tooltip dark:bg-dark-light shadow-lg shadow-light-dark dark:shadow-dark-dark">
                     Change theme scheme
@@ -49,7 +70,7 @@
                     </div>
                 </div>
             </li>
-            <li>
+            <!-- <li>
                 <a href="https://www.linkedin.com/in/luca-macedone" data-tooltip-target="tooltip-twitter"
                     class="rounded-full text-primary-dark dark:text-primary-light p-2 w-max flex items-center justify-center gap-2 hover:scale-105 hover:bg-light-dark dark:hover:bg-dark-dark transition-all ease-in-out duration-200">
                     <ng-icon name="faBrandLinkedinIn" class="text-2xl" />
@@ -74,7 +95,7 @@
                     <div class="tooltip-arrow" data-popper-arrow>
                     </div>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </nav>
 </footer>

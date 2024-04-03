@@ -7,79 +7,71 @@ import { LocalStorageService } from '../services/local-storage.service';
   styleUrl: './footer-section.component.scss'
 })
 export class FooterSectionComponent implements OnInit {
-  darkThemeLS: string = this.localStorageService.getItem('theme') ? this.localStorageService.getItem('theme') : 'light'
-  darkTheme: boolean = this.darkThemeLS == 'light' ? false : true
-  maskEl: HTMLElement | null = null
+  themeSetting: 'light' | 'dark' | 'system' = 'system';
+  maskEl: HTMLElement | null = null;
+  isThemeSettingShowing: boolean = false;
 
   constructor(private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
-    if (this.localStorageService.getItem('theme')) {
-      if (this.localStorageService.getItem('theme') === 'dark' || (!(this.localStorageService.getItem('theme')) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.body.classList.add('dark')
-      } else {
-        document.body.classList.remove('dark')
+    const storedTheme = this.localStorageService.getItem('theme');
+    this.themeSetting = storedTheme ? storedTheme as 'light' | 'dark' | 'system' : 'system';
+    this.applyTheme();
+  }
+
+  isDark(): boolean {
+    return this.themeSetting === 'dark'
+  }
+
+  onChangeTheme(evt: any) {
+    if (evt) {
+      switch (evt) {
+        case '0':
+          this.themeSetting = 'light';
+          break;
+        case '1':
+          this.themeSetting = 'system';
+          break;
+        case '2':
+          this.themeSetting = 'dark';
+          break;
+        default:
+          this.themeSetting = 'system';
       }
     } else {
-      this.localStorageService.setItem('theme', 'light')
+      this.themeSetting = 'system';
     }
-    this.setBg()
-    this.setMask()
-    this.setScrollbarColor()
+    this.localStorageService.setItem('theme', this.themeSetting);
+    this.applyTheme();
   }
 
-  isDark() {
-    if (document.body.classList.contains('dark')) {
-      return true
+  applyTheme() {
+    const useDarkMode = this.themeSetting === 'dark' || (this.themeSetting === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    if (useDarkMode) {
+      document.body.classList.add('dark');
     } else {
-      return false
+      document.body.classList.remove('dark');
     }
-  }
-
-  toggleDarkMode() {
-    if (this.localStorageService.getItem('theme') == 'light') {
-      this.localStorageService.removeItem('theme')
-      this.localStorageService.setItem('theme', 'dark')
-      this.darkTheme = !this.darkTheme
-      document.body.classList.add('dark')
-    } else if (this.localStorageService.getItem('theme') == 'dark') {
-      this.localStorageService.removeItem('theme')
-      this.localStorageService.setItem('theme', 'light')
-      this.darkTheme = !this.darkTheme
-      document.body.classList.remove('dark')
-    }
-    this.setBg()
-    this.setMask()
-    this.setScrollbarColor()
+    this.setBg();
+    this.setMask();
+    this.setScrollbarColor();
   }
 
   setBg() {
-    if (document.body.classList.contains('dark')) {
-      document.body.classList.add('ms-dark-bg')
-    } else {
-      document.body.classList.remove('ms-dark-bg')
-    }
+    document.body.classList.toggle('ms-dark-bg', this.themeSetting === 'dark' || (this.themeSetting === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
   }
 
   setScrollbarColor() {
-    if (document.body.classList.contains('dark')) {
-      document.body.classList.remove('scroll-light')
-      document.body.classList.add('scroll-dark')
-    } else {
-      document.body.classList.remove('scroll-dark')
-      document.body.classList.add('scroll-light')
-    }
+    const useDarkMode = this.themeSetting === 'dark' || (this.themeSetting === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    document.body.classList.toggle('scroll-dark', useDarkMode);
+    document.body.classList.toggle('scroll-light', !useDarkMode);
   }
 
   setMask() {
-    this.maskEl = document.querySelector('#mask')
+    this.maskEl = document.querySelector('#mask');
     if (this.maskEl) {
-      if (document.body.classList.contains('dark')) {
-        this.maskEl.classList.add('mask-dark')
-      } else {
-        this.maskEl.classList.remove('mask-dark')
-      }
+      this.maskEl.classList.toggle('mask-dark', this.themeSetting === 'dark' || (this.themeSetting === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches));
     }
   }
-
 }
