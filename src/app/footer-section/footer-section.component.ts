@@ -20,7 +20,8 @@ export class FooterSectionComponent implements OnInit {
   }
 
   isDark(): boolean {
-    return this.themeSetting === 'dark'
+
+    return document.body.classList.contains('dark');
   }
 
   onChangeTheme(evt: any) {
