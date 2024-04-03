@@ -8,6 +8,8 @@
     background-color: theme("colors.dark.light") !important;
     // background-image: radial-gradient(circle, #0d0d0d, #141414, #1a1a1a, #202020, #262626) !important;
     background-image: linear-gradient(to right top, #0d0d0d, #141414, #1a1a1a, #202020, #262626) !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed;
 }
 body {
     // background-color: theme("colors.gray.100");

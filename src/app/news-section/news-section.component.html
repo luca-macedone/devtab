@@ -2,7 +2,7 @@
     class="dark:text-primary-light text-primary-dark font-mono font-semibold text-xl bg-light-light dark:bg-dark-light shadow-lg rounded-xl sticky top-0 left-0 z-10 py-[15px] m px-5 inline-flex w-full">
     Daily Top News
 </h2>
-<div class="flex flex-col gap-3 overflow-scroll md:overflow-y-auto h-full w-full p-3"
+<div class="flex flex-col gap-3 overflow-y-auto md:overflow-y-auto h-full w-full p-3"
     *ngIf="!isLoading; else loadingSection">
     <a [href]="article.url"
         class="border-[2px] border-transparent hover:border-primary-light hover:dark:border-primary-dark overflow-hidden transition-all ease-in-out duration-200 rounded-xl flex flex-col shadow-lg shadow-muted-light dark:shadow-none relative h-max max-h-40"
@@ -35,7 +35,7 @@
 
 <!-- LOADING -->
 <ng-template #loadingSection>
-    <div class="flex flex-col gap-5 overflow-y-auto h-full p-1">
+    <div class="flex flex-col gap-5 overflow-y-auto h-full">
         <div
             class="animate-pulse p-4 rounded-lg shadow-muted-light dark:shadow-muted-dark flex flex-col items-start gap-2">
             <div class="flex items-center justify-between">

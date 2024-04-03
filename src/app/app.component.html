@@ -1,9 +1,10 @@
-<div class="max-h-screen max-w-screen h-screen w-full md:overflow-hidden flex flex-col sm:items-center gap-10 sm:gap-4">
+<div
+  class="md:max-h-screen md:max-w-screen h-full md:h-scren w-screen md:overflow-hidden flex flex-col sm:items-center">
   <main
-    class="h-full w-full p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-4 md:overflow-hidden justify-center items-center">
-    <div class="relative row-span-1 sm:row-span-3 col-span-1 h-96 sm:h-full w-full overflow-hidden">
+    class="h-full w-full p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-4 overflow-y-auto md:overflow-hidden justify-center items-center">
+    <div class="relative row-span-1 sm:row-span-3 col-span-1 h-96 sm:h-full w-full overflow-hidden flex flex-col">
       <div
-        class="row-span-1 sm:row-span-3 col-span-1 h-96 sm:h-full w-full overflow-y-scroll relative flex flex-col p-4 px-0 sm:pe-4 pt-0">
+        class="row-span-1 sm:row-span-3 col-span-1 h-96 md:h-screen w-full overflow-y-scroll relative flex flex-col p-4 px-0 sm:pe-4 pt-0">
         <!-- <h2 class="text-emerald-400 dark:text-emerald-500 font-mono text-xl mb-3 ms-5">Daily Top News</h2> -->
         <app-news-section></app-news-section>
       </div>
@@ -24,7 +25,7 @@
     </div>
     <!-- <div class="col-span-1 md:col-span-2 lg:col-span-3 h-max min-w-full overflow-hidden flex items-center justify-center">
     </div> -->
-    <div class="h-full w-full col-span-1 md:col-span-2 lg:col-span-3">
+    <div class="w-full col-span-1 md:col-span-2 lg:col-span-3 max-h-[72px] h-max ">
       <app-footer-section></app-footer-section>
     </div>
   </main>
