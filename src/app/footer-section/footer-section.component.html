@@ -48,15 +48,15 @@
                     <ng-icon name="faSolidSun"
                         class="text-2xl cursor-pointer hover:text-primary-dark dark:hover:text-primary-light hover:text-opacity-60 transition-all ease-in-out duration-200"
                         [class]="themeSetting == 'light' ? 'text-primary-dark dark:text-primary-light drop-shadow' : 'text-light-light dark:text-muted-dark'"
-                        (click)="onChangeTheme('0')" *ngIf="isThemeSettingShowing" />
+                        (click)="onChangeTheme('0')" *ngIf="isThemeSettingShowing" title="Light" />
                     <ng-icon name="faSolidGear"
                         class="text-2xl cursor-pointer hover:text-primary-dark dark:hover:text-primary-light hover:text-opacity-60 transition-all ease-in-out duration-200"
                         [class]="themeSetting == 'system' ? 'text-primary-dark dark:text-primary-light drop-shadow' : 'text-light-light dark:text-muted-dark'"
-                        (click)="onChangeTheme('1')" *ngIf="isThemeSettingShowing" />
+                        (click)="onChangeTheme('1')" *ngIf="isThemeSettingShowing" title="System" />
                     <ng-icon name="faSolidMoon"
                         class="text-2xl cursor-pointer hover:text-primary-dark dark:hover:text-primary-light hover:text-opacity-60 transition-all ease-in-out duration-200"
                         [class]="themeSetting == 'dark' ? 'text-primary-dark dark:text-primary-light drop-shadow' : 'text-light-light dark:text-muted-dark'"
-                        (click)="onChangeTheme('2')" *ngIf="isThemeSettingShowing" />
+                        (click)="onChangeTheme('2')" *ngIf="isThemeSettingShowing" title="Dark" />
                     <ng-icon name="faSolidPalette"
                         class="text-2xl cursor-pointer hover:text-primary-dark dark:hover:text-primary-light hover:text-opacity-60 transition-all ease-in-out duration-200"
                         *ngIf="!isThemeSettingShowing" />
