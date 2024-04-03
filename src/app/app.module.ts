@@ -16,7 +16,7 @@ import { ClockItemComponent } from './clock-item/clock-item.component';
 import { QuizSectionComponent } from './quiz-section/quiz-section.component';
 
 import { NgIconsModule } from '@ng-icons/core';
-import { faSolidCircleCheck, faSolidArrowUp, faSolidCirclePlus, faSolidCircleXmark, faSolidSun, faSolidMoon, faSolidCopyright, faSolidListCheck, faSolidCheck } from '@ng-icons/font-awesome/solid';
+import { faSolidCircleCheck, faSolidArrowUp, faSolidCirclePlus, faSolidCircleXmark, faSolidSun, faSolidMoon, faSolidCopyright, faSolidListCheck, faSolidCheck, faSolidGear, faSolidPalette } from '@ng-icons/font-awesome/solid';
 import { faCircleCheck } from '@ng-icons/font-awesome/regular';
 import { faBrandLinkedinIn, faBrandGithub } from '@ng-icons/font-awesome/brands';
 import { HttpClientModule } from '@angular/common/http';
@@ -40,7 +40,7 @@ import { BookmarkSectionComponent } from './bookmark-section/bookmark-section.co
     FormsModule,
     DragDropModule,
     HttpClientModule,
-    NgIconsModule.withIcons({ faSolidCircleCheck, faCircleCheck, faSolidArrowUp, faSolidCirclePlus, faSolidCircleXmark, faSolidSun, faSolidMoon, faBrandLinkedinIn, faBrandGithub, faSolidCopyright, faSolidListCheck, faSolidCheck })
+    NgIconsModule.withIcons({ faSolidCircleCheck, faCircleCheck, faSolidArrowUp, faSolidCirclePlus, faSolidCircleXmark, faSolidSun, faSolidMoon, faBrandLinkedinIn, faBrandGithub, faSolidCopyright, faSolidListCheck, faSolidCheck, faSolidGear, faSolidPalette })
   ],
   providers: [],
   bootstrap: [AppComponent]
