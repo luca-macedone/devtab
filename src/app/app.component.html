@@ -1,10 +1,9 @@
-<div
-  class="h-screen w-screen md:max-h-screen max-w-screen md:overflow-hidden overflow-y-scroll flex flex-col sm:items-center gap-10 sm:gap-4">
+<div class="max-h-screen max-w-screen h-screen w-full md:overflow-hidden flex flex-col sm:items-center gap-10 sm:gap-4">
   <main
     class="h-full w-full p-4 pb-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-4 md:overflow-hidden justify-center items-center">
     <div class="relative row-span-1 sm:row-span-3 col-span-1 h-96 sm:h-full w-full overflow-hidden">
       <div
-        class="row-span-1 sm:row-span-3 col-span-1 h-96 sm:h-full w-full overflow-y-scroll relative flex flex-col p-4 sm:px-0 sm:pe-4 pt-0">
+        class="row-span-1 sm:row-span-3 col-span-1 h-96 sm:h-full w-full overflow-y-scroll relative flex flex-col p-4 px-0 sm:pe-4 pt-0">
         <!-- <h2 class="text-emerald-400 dark:text-emerald-500 font-mono text-xl mb-3 ms-5">Daily Top News</h2> -->
         <app-news-section></app-news-section>
       </div>
@@ -14,13 +13,13 @@
       <app-search-section></app-search-section>
     </div>
     <div
-      class="row-span-1 sm:row-span-3 col-span-1 rounded-xl h-96 md:max-h-full md:h-full md:overflow-hidden px-4 sm:px-0 sm:ps-4">
+      class="row-span-1 sm:row-span-3 col-span-1 rounded-xl h-96 md:max-h-full md:h-full md:overflow-hidden px-0 sm:ps-4">
       <app-tasks-section></app-tasks-section>
     </div>
-    <div class="row-span-1 col-span-1 h-max order-first md:order-none">
+    <div class="row-span-1 col-span-1 h-max order-first md:order-none w-full flex items-center justify-center">
       <app-bookmark-section></app-bookmark-section>
     </div>
-    <div class="row-span-1 col-span-1 hidden sm:block rounded-xl px-4 sm:px-0 overflow-hidden h-max w-full">
+    <div class="row-span-1 col-span-1 hidden sm:block rounded-xl px-0 overflow-hidden h-max w-full">
       <app-quiz-section></app-quiz-section>
     </div>
     <!-- <div class="col-span-1 md:col-span-2 lg:col-span-3 h-max min-w-full overflow-hidden flex items-center justify-center">
